@@ -1,0 +1,18 @@
+version: '3.8'  # Ensure compatibility with your Docker Compose version
+
+services:
+  embeddings-api:
+    build: .
+    ports:
+      - "8240:8240"
+    environment:
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+    deploy:
+      resources:
+        reservations:
+          devices:
+          - capabilities: ["gpu"]
+            driver: nvidia
+            device_ids: ["0"]  # Specify GPU IDs here, or use ["all"] for all available GPUs
+    restart: unless-stopped
