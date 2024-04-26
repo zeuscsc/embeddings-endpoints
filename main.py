@@ -19,8 +19,8 @@ reranker_release_task = None
 model_lock = asyncio.Lock()
 reranker_lock = asyncio.Lock()
 # Set timeout for model release (in seconds). Adjust as necessary.
-MODEL_RELEASE_TIMEOUT = 30  # 300 = 5 minutes for example
-RERANKER_RELEASE_TIMEOUT = 30  # 300 = 5 minutes for example
+MODEL_RELEASE_TIMEOUT = 300  # 300 = 5 minutes for example
+RERANKER_RELEASE_TIMEOUT = 300  # 300 = 5 minutes for example
 
 class Items(BaseModel):
     queries: list[str]
