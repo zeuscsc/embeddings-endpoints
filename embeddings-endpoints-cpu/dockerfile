@@ -13,10 +13,9 @@ RUN python -m pip install --upgrade pip
 WORKDIR /app
 
 # Copy the contents from your host to your current location.
-COPY .. /app
+COPY . /app
 
 # Install Python dependencies from requirements
-# RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 RUN pip install -r requirements.txt
 
 RUN python cache_model.py
